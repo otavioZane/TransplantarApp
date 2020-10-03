@@ -5,18 +5,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import AnimatedSplash from 'react-native-animated-splash-screen';
 
 const App = () => (
-  <AnimatedSplash
-  translucent={true}
-  isLoaded={this.state.isLoaded}
-  logoImage={require("./assets/whatsapp-logo-icone-1.png")}
-  backgroundColor={"#262626"}
-  logoHeight={150}
-  logoWidth={150}
-  >
-    <NavigationContainer>
+  <NavigationContainer>
+    <AnimatedSplash
+      translucent={true}
+      isLoaded={true}
+      logoImage={require('./assets/transplantar_logo.png')}
+      backgroundColor={'#6E78F7'}
+      logoHeight={350}
+      logoWidth={300}>
       <Routes />
-    </NavigationContainer>
-  </AnimatedSplash>
+    </AnimatedSplash>
+  </NavigationContainer>
 );
 
 export default App;
