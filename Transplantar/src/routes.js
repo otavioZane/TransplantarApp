@@ -9,9 +9,9 @@ const { Navigator, Screen } = createStackNavigator();
 
 const Routes = () => (
   <Navigator>
-    <Screen name="home" component={Home} />
-    <Screen name="login" component={Login} />
     <Screen name="cadastro" component={SignUp} />
+    <Screen name="login" component={Login} />
+    <Screen name="home" component={Home} />
   </Navigator>
 )
 

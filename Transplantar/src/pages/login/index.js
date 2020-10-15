@@ -4,7 +4,7 @@ import {SafeAreaView} from 'react-native'
 const Login = () => {
   return (
     <SafeAreaView>
-
+      
     </SafeAreaView>
   )
 }
