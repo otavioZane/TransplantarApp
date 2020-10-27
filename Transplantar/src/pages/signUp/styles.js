@@ -5,10 +5,10 @@ export const Container = styled(View)`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #121212;
 `;
 
 export const Title = styled(Text)`
   font-size: 28px;
-  color: #343434;
+  color: black;
+  padding-top: 100px;
 `;

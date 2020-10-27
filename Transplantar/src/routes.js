@@ -8,7 +8,7 @@ import SignUp from './pages/signUp'
 const { Navigator, Screen } = createStackNavigator();
 
 const Routes = () => (
-  <Navigator>
+  <Navigator screenOptions={{headerShown: false}}>
     <Screen name="cadastro" component={SignUp} />
     <Screen name="login" component={Login} />
     <Screen name="home" component={Home} />
