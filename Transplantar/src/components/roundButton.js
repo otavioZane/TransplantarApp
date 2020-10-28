@@ -11,18 +11,19 @@ const RoundButton = (props) => (
 );
 
 const ButtonContainer = styled.TouchableOpacity`
-  width: 30px;
-  height: 30px;
+  width: 280px;
+  height: 40px;
   padding: 12px;
-  border-radius: 50px;    
-  border-color: ${props => props.borderColor};
+  border-radius: 50px;
+  border-color: #ccc;    
   border-width: 1px;
 `;
 
 const ButtonText = styled.Text`
   font-size: 15px;
-  color: ${props => props.textColor};
+  color: #6f78f6;
   text-align: center;
+
 `;
 
 export default RoundButton
