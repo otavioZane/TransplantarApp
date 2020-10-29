@@ -9,6 +9,7 @@ const RoundButton = ({onPress, text, textColor, backgroundColor}) => (
 
 const ButtonContainer = styled.TouchableOpacity`
   border-color: #ccc;
+  background: ${({backgroundColor}) => backgroundColor || '#fff'};
   border-radius: 50;
   border-width: 1;
   padding: 12px;

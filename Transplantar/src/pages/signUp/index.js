@@ -1,5 +1,4 @@
 import React from 'react';
-import {Alert} from 'react-native';
 import {Container, ContainerButtons, Logo, Termos} from './styles';
 import RoundButton from '../../components/roundButton';
 import PurpleRound from '../../components/purpleRound';
@@ -8,17 +7,23 @@ import LogoImg from '../../assets/img/transplantar_logo.png';
 const SignUp = ({navigation}) => {
   return (
     <Container>
-      <PurpleRound height="55%">
+      <PurpleRound
+        style={{alignItems: 'center'}}
+        text="start"
+        textColor="#fff"
+        height="55%">
         <Logo source={LogoImg} />
       </PurpleRound>
       <ContainerButtons>
         <RoundButton
-          onPress={() => navigation.navigate('Register', {type: 'doador'})}
+          onPress={() => navigation.navigate('Register', {userType: 'doador'})}
           text="Sou doador"
           textColor="#292b2a"
         />
         <RoundButton
-          onPress={() => navigation.navigate('Register', {type: 'receptor'})}
+          onPress={() =>
+            navigation.navigate('Register', {userType: 'receptor'})
+          }
           text="Sou receptor"
           textColor="#82bbdc"
         />
