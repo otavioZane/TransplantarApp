@@ -1,13 +1,26 @@
 import styled from 'styled-components/native';
-import {View, Image} from 'react-native';
+import {View, Image, Text} from 'react-native';
 
-export const Container = styled(View)`
-  flex: 1; 
-  justify-content: center;
+export const Container = styled(View)` 
   align-items: center;
-`;
+  justify-content: center;
+`
+
+export const ContainerButtons = styled(View)`
+  background-color: red;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 10px;
+`
 
 export const Logo = styled(Image)`
-  width: 10px;
-  height: 10px;
+  height: 350;
+  width: 350;
+`
+
+export const Termos = styled(Text)`
+  color: #ccc;
+  font-size: 12;
+  margin-top: 15;
 `

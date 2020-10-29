@@ -1,29 +1,27 @@
 import styled from 'styled-components/native';
 import React from 'react';
 
-const RoundButton = (props) => (
-  <ButtonContainer
-      onPress={() => props.onPress}
-      backgroundColor={props.backgroundColor}
-  >
-      <ButtonText textColor={props.textColor}>{props.text}</ButtonText>
+const RoundButton = ({onPress, text, textColor, backgroundColor}) => (
+  <ButtonContainer onPress={() => onPress} backgroundColor={backgroundColor}>
+    <ButtonText textColor={textColor}>{text}</ButtonText>
   </ButtonContainer>
 );
 
 const ButtonContainer = styled.TouchableOpacity`
-  width: 280px;
-  height: 40px;
+  border-color: #ccc;
+  border-radius: 50;
+  border-width: 1;
+  height: 40;
   padding: 12px;
-  border-radius: 50px;
-  border-color: #ccc;    
-  border-width: 1px;
+  padding-bottom: 35;
+  width: 280;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 15px;
-  color: #6f78f6;
+  color: ${({textColor}) => textColor || '#6f78f6'};
+  font-size: 20;
+  justify-content: center;
   text-align: center;
-
 `;
 
-export default RoundButton
+export default RoundButton;
