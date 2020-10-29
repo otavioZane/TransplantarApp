@@ -1,19 +1,32 @@
 import React from 'react';
+import {Alert} from 'react-native';
 import {Container, ContainerButtons, Logo, Termos} from './styles';
 import RoundButton from '../../components/roundButton';
-import PurpleRounded from '../../components/purpleRounded';
+import PurpleRound from '../../components/purpleRound';
 import LogoImg from '../../assets/img/transplantar_logo.png';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   return (
     <Container>
-      <PurpleRounded>
+      <PurpleRound height="55%">
         <Logo source={LogoImg} />
-      </PurpleRounded>
+      </PurpleRound>
       <ContainerButtons>
-        <RoundButton text="Sou doador" textColor="#292b2a" />
-        <RoundButton text="Sou receptor" textColor="#82bbdc" />
-        <RoundButton text="Já sou cadastrado" textColor="#6f78f6" />
+        <RoundButton
+          onPress={() => navigation.navigate('Register', {type: 'doador'})}
+          text="Sou doador"
+          textColor="#292b2a"
+        />
+        <RoundButton
+          onPress={() => navigation.navigate('Register', {type: 'receptor'})}
+          text="Sou receptor"
+          textColor="#82bbdc"
+        />
+        <RoundButton
+          onPress={() => navigation.navigate('Login')}
+          text="Já sou cadastrado"
+          textColor="#6f78f6"
+        />
       </ContainerButtons>
       <Termos>
         Ao prosseguir para cadastro você aceita os termos e condições de uso

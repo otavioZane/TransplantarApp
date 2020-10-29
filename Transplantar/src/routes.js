@@ -1,18 +1,20 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from './pages/home'
-import Login from './pages/login'
-import SignUp from './pages/signUp'
+import Home from './pages/home';
+import Login from './pages/login';
+import SignUp from './pages/signUp';
+import Register from './pages/register';
 
-const { Navigator, Screen } = createStackNavigator();
+const {Navigator, Screen} = createStackNavigator();
 
 const Routes = () => (
   <Navigator screenOptions={{headerShown: false}}>
-    <Screen name="cadastro" component={SignUp} />
-    <Screen name="login" component={Login} />
-    <Screen name="home" component={Home} />
+    <Screen name="SignUp" component={SignUp} />
+    <Screen name="Login" component={Login} />
+    <Screen name="Home" component={Home} />
+    <Screen name="Register" component={Register} />
   </Navigator>
-)
+);
 
-export default Routes
+export default Routes;
