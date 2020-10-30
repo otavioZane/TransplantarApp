@@ -11,6 +11,7 @@ const Register = ({route, navigation}) => {
   const [email, setEmail] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [pin, setPin] = React.useState('');
+  const [CPF, setCPF] = React.useState('');
   const [city, setCity] = React.useState('');
   const [organ, setOrgan] = React.useState('');
   const [blood, setBlood] = React.useState('');
@@ -29,6 +30,8 @@ const Register = ({route, navigation}) => {
             onChangeText={(text) => setName(text)}
             placeholder="Nome"
           />
+          <InputLabel>CPF</InputLabel>
+          <InputText onChangeText={(text) => setCPF(text)} placeholder="CPF" />
           <InputLabel>E-mail</InputLabel>
           <InputText
             onChangeText={(text) => setEmail(text)}

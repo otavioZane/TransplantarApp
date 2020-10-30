@@ -11,9 +11,9 @@ const {Navigator, Screen} = createStackNavigator();
 const Routes = () => (
   <Navigator screenOptions={{headerShown: false}}>
     <Screen name="SignUp" component={SignUp} />
+    <Screen name="Register" component={Register} />
     <Screen name="Login" component={Login} />
     <Screen name="Home" component={Home} />
-    <Screen name="Register" component={Register} />
   </Navigator>
 );
 
