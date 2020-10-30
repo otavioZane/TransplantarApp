@@ -28,7 +28,7 @@ const SignUp = ({navigation}) => {
           textColor="#82bbdc"
         />
         <RoundButton
-          onPress={() => navigation.navigate('Login', {userType: 'receptor'})}
+          onPress={() => navigation.navigate('Home', {userType: 'receptor'})}
           text="Já sou cadastrado"
           textColor="#6f78f6"
         />

@@ -13,7 +13,7 @@ const ButtonContainer = styled.TouchableOpacity`
   border-radius: 50;
   border-width: 1;
   padding: 12px;
-  margin: 12px;
+  margin: 10px;
   width: 280;
 `;
 

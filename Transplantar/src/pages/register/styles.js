@@ -13,7 +13,7 @@ export const InputText = styled(TextInput)`
 export const InputLabel = styled.Text`
   color: ${({textColor}) => textColor || '#6f78f6'};
   font-size: 16;
-  font-weight:bold
+  font-weight:bold;
   text-align: left;
   margin-right: auto;
   padding: 9px;
@@ -22,7 +22,7 @@ export const InputLabel = styled.Text`
 export const RouteTitle = styled.Text`
   color: ${({textColor}) => textColor || '#fff'};
   font-size: 26;
-  font-weight:bold
+  font-weight:bold;
   text-align: center;
   margin-right: auto;
   margin-top:36px;

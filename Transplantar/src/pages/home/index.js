@@ -1,11 +1,24 @@
 import React from 'react';
-import {View, Text, ViewBase} from 'react-native';
+import {Container, ButtonContainer, RouteTitle} from './styles'
+import PurpleRound from '../../components/purpleRound'
+import CircleButton from '../../components/circleButton'
 
 const Home = () => {
   return (
-    <View>
-      <Text style={{fontSize: 40}}>Foi?</Text>
-    </View>
+    <Container>
+      <PurpleRound
+        height="22%"
+        style={{position: 'relative'}}   
+      >
+      <RouteTitle>Transplantar</RouteTitle>
+      <ButtonContainer style={{marginTop: -35}}>
+        <CircleButton></CircleButton>
+        <CircleButton></CircleButton>
+        <CircleButton></CircleButton>
+      </ButtonContainer>
+      </PurpleRound>
+      
+    </Container>
   );
 };
 

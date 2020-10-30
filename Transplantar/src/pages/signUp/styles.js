@@ -9,7 +9,7 @@ export const Container = styled(View)`
 export const ContainerButtons = styled(View)`
   flex-wrap: wrap;
   flex-direction: column;
-  height: 35%;
+  height: 36.5%;
   justify-content: space-around;
   margin-top: 10px;
 `;
