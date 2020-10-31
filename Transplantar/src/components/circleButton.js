@@ -1,12 +1,16 @@
 import styled from 'styled-components/native';
-import {TouchableOpacity, Image, View} from 'react-native';
+import {TouchableOpacity, Image, Dimensions} from 'react-native';
 import React from 'react'
 
-const CircleButton = () => (
+const {width, height} = Dimensions.get("window")
+
+const CircleButton = (props) => { 
+  return(
   <ButtonCircle>
-    {/* <ButtonImage /> */}
+    <ButtonImage source={props.source} /> 
   </ButtonCircle>
-);
+  )
+};
 
 const ButtonCircle = styled(TouchableOpacity)`
   border-color: #ccc;
@@ -16,11 +20,12 @@ const ButtonCircle = styled(TouchableOpacity)`
   margin: 10px;
   padding: 12px;
   width: 80;
+  background-color: #fff;
 `;
 
-// const ButtonImage = styled(Image)`
-//   height: 50;
-//   width: 50;
-// `;
+const ButtonImage = styled(Image)`
+  height: 50;
+  width: 50; 
+`;
 
 export default CircleButton;
