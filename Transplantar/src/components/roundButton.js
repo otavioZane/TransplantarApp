@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 import React from 'react';
+<<<<<<< HEAD
 import {Text, TouchableOpacity} from 'react-native'
+=======
+import {Text, TouchableOpacity} from 'react-native';
+>>>>>>> origin/master
 
 const RoundButton = ({onPress, text, textColor, backgroundColor}) => (
   <ButtonContainer onPress={onPress} backgroundColor={backgroundColor}>
