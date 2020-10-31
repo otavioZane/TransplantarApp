@@ -1,7 +1,6 @@
 import React from 'react';
 import {Termos} from '../signUp/styles';
-import {ScrollView, View} from 'react-native';
-import {Picker} from '@react-native-community/picker';
+import {View, Alert} from 'react-native';
 import {
   CardBackground,
   InputText,
@@ -10,10 +9,50 @@ import {
 } from '../register/styles';
 import RoundButton from '../../components/roundButton';
 import PurpleRound from '../../components/purpleRound';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({route, navigation}) => {
   const [CPF, setCPF] = React.useState('');
   const [pin, setPin] = React.useState('');
+
+  const handleLogin = () => {
+    if (CPF.length == 11 && pin.length == 4) {
+      fetch('https://transplantar.azurewebsites.net/cpf/' + CPF, {
+        method: 'GET',
+      })
+        .then((response) => response.json())
+        .then((user) => {
+          if (user != null) {
+            if (user.pin == pin) {
+              AsyncStorage.setItem('auth', 'true');
+              AsyncStorage.setItem('usuarioId', toString(user.usuarioId));
+              AsyncStorage.setItem('cpf', user.cpf);
+              AsyncStorage.setItem('nome', user.nome);
+              AsyncStorage.setItem('email', user.email);
+              AsyncStorage.setItem('cidade', user.cidade);
+              AsyncStorage.setItem('orgao', toString(user.orgao));
+              AsyncStorage.setItem('pin', toString(user.pin));
+              AsyncStorage.setItem(
+                'grupoSanguineo',
+                toString(user.grupoSanguineo),
+              );
+              AsyncStorage.setItem('tipoUsuario', toString(user.tipoUsuario));
+              AsyncStorage.setItem('celular', user.celular);
+              navigation.navigate('Home');
+            } else {
+              Alert.alert('Acesso Negado', 'O PIN informado está incorreto!');
+            }
+          } else {
+            Alert.alert(
+              'Acesso Negado',
+              'Não foi possível completar a requisição. ',
+            );
+          }
+        });
+    } else {
+      Alert.alert('Acesso Negado', 'Digite um PIN ou um CPF válido!');
+    }
+  };
 
   return (
     <View style={{alignItems: 'center', height: '100%'}}>
@@ -30,7 +69,7 @@ const Login = ({route, navigation}) => {
           condições da plataforma.
         </Termos>
         <RoundButton
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => handleLogin()}
           text="Acessar"
           textColor="#fff"
           backgroundColor="#6f78f6"

@@ -6,9 +6,7 @@ import AnimatedSplash from 'react-native-animated-splash-screen';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setTimeout(() => setLoading(true), 1000);
-  }, []);
+  useEffect(() => setTimeout(() => setLoading(true), 1000), []);
 
   return (
     <NavigationContainer>
