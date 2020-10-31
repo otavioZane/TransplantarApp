@@ -25,8 +25,8 @@ export const RouteTitle = styled.Text`
   font-weight:bold
   text-align: center;
   margin-right: auto;
-  margin-top:36px;
-  padding: 36px;
+  margin-top: ${({marginTop}) => marginTop || '36px'};
+  padding: ${({padding}) => padding || '36px'};
 `;
 
 export const CardBackground = styled(View)`

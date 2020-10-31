@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Container, ContainerButtons, Logo, Termos} from './styles';
 import RoundButton from '../../components/roundButton';
 import PurpleRound from '../../components/purpleRound';
 import LogoImg from '../../assets/img/transplantar_logo.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignUp = ({navigation}) => {
+  useEffect(() => {
+    async function fetchData() {
+      var auth = await AsyncStorage.getItem('auth');
+      if (auth == 'true') {
+        navigation.navigate('Home');
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <PurpleRound
