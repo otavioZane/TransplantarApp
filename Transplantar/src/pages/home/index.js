@@ -1,21 +1,30 @@
 import React from 'react';
-import {Termos} from '../signUp/styles';
-import {View} from 'react-native';
-import {CardBackground, RouteTitle} from '../register/styles';
-import PurpleRound from '../../components/purpleRound';
 
-const Home = ({route, navigation}) => {
+import {Container, ButtonContainer, RouteTitle} from './styles';
+
+import CircleButton from '../../components/circleButton';
+import NavBar from '../../components/navBar';
+import PurpleRound from '../../components/purpleRound';
+import SearchLab from '../../components/searchLab';
+
+import Nurse from '../../assets/img/nurse.png';
+import Pill from '../../assets/img/pill.png';
+import Microscope from '../../assets/img/microscope.png';
+import HomeLabSearch from '../../assets/img/home.png';
+
+const Home = () => {
   return (
-    <View style={{alignItems: 'center', height: '100%'}}>
-      <PurpleRound height="18%" style={{position: 'relative'}}>
+    <Container>
+      <PurpleRound height="22%" style={{position: 'relative'}}>
         <RouteTitle>Transplantar</RouteTitle>
+        <ButtonContainer style={{marginTop: -35}}>
+          <CircleButton source={Nurse}></CircleButton>
+          <CircleButton source={Pill}></CircleButton>
+          <CircleButton source={Microscope}></CircleButton>
+        </ButtonContainer>
       </PurpleRound>
-      <CardBackground style={{position: 'absolute', marginTop: 250}}>
-        <Termos style={{textAlign: 'center'}}>
-          Compartilhe o nosso aplicativo
-        </Termos>
-      </CardBackground>
-    </View>
+      <SearchLab source={HomeLabSearch} />
+    </Container>
   );
 };
 
