@@ -4,3 +4,4 @@ export {default as signUp} from './signUp';
 export {default as register} from './register';
 export {default as tips} from './tips';
 export {default as editProfile} from './editProfile';
+export {default as menu} from './menu';

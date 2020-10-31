@@ -1,6 +1,5 @@
 import React from 'react';
 
-<<<<<<< HEAD
 import {Container, ButtonContainer, RouteTitle} from './styles'
 
 import CircleButton from '../../components/circleButton'
@@ -13,44 +12,36 @@ import Pill from '../../assets/img/pill.png'
 import Microscope from '../../assets/img/microscope.png'
 import HomeLabSearch from '../../assets/img/home.png'
 
-=======
-import {Container, ButtonContainer, RouteTitle} from './styles';
-
-import CircleButton from '../../components/circleButton';
-import NavBar from '../../components/navBar';
-import PurpleRound from '../../components/purpleRound';
-import SearchLab from '../../components/searchLab';
-
-import Nurse from '../../assets/img/nurse.png';
-import Pill from '../../assets/img/pill.png';
-import Microscope from '../../assets/img/microscope.png';
-import HomeLabSearch from '../../assets/img/home.png';
->>>>>>> origin/master
-
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <Container>
-<<<<<<< HEAD
       <PurpleRound
         height="22%"
         style={{position: 'relative'}}   
       >
       <RouteTitle>Transplantar</RouteTitle>
-=======
-      <PurpleRound height="22%" style={{position: 'relative'}}>
-        <RouteTitle>Transplantar</RouteTitle>
->>>>>>> origin/master
         <ButtonContainer style={{marginTop: -35}}>
-          <CircleButton source={Nurse}></CircleButton>
-          <CircleButton source={Pill}></CircleButton>
-          <CircleButton source={Microscope}></CircleButton>
+          <CircleButton 
+            source={Microscope} 
+            onPress={() => navigation.navigate('Tips', {tipTitle: 'Exames'})}
+            textTitle="Exames"
+            textST="Encontre seus exames"
+            ></CircleButton>
+          <CircleButton 
+            source={Nurse} 
+            onPress={() => navigation.navigate('Tips', {tipTitle: 'Pré-Doação'})}
+            textTitle="Pré-doação"
+            textST="Requisitos para doação"
+            ></CircleButton>
+          <CircleButton 
+            source={Pill} 
+            onPress={() => navigation.navigate('Tips', {tipTitle: 'Pós-Doação'})}
+            textTitle="Pós-doação"
+            textST="Cicatrização e cuidados"
+            ></CircleButton>
         </ButtonContainer>
       </PurpleRound>
-<<<<<<< HEAD
-      <SearchLab source={HomeLabSearch}/> 
-=======
-      <SearchLab source={HomeLabSearch} />
->>>>>>> origin/master
+      <SearchLab source={HomeLabSearch}/>      
     </Container>
   );
 };

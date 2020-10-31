@@ -1,23 +1,13 @@
 import styled from 'styled-components/native';
 import React from 'react';
-<<<<<<< HEAD
-import {Image, Text, View, TouchableOpacity} from 'react-native'
-=======
 import {Image, Text, View, TouchableOpacity} from 'react-native';
->>>>>>> origin/master
 
 const SearchLab = (props) => (
   <SearchContainer>
     <SearchImage source={props.source} />
-<<<<<<< HEAD
-     <BtnContainer>
-      <ButtonText>Encontrar laboratórios próximos</ButtonText>
-    </BtnContainer> 
-=======
-    <BtnContainer>
+    <BtnContainer onPress={props.onPress}>
       <ButtonText>Encontrar laboratórios próximos</ButtonText>
     </BtnContainer>
->>>>>>> origin/master
   </SearchContainer>
 );
 
@@ -41,18 +31,15 @@ const ButtonText = styled(Text)`
 
 const BtnContainer = styled(TouchableOpacity)`
   background: #fff;
-  margin: 15px;
+  
+  margin-top: 25px;
   padding: 12px;
   width: 350;
 `;
 
 const SearchImage = styled(Image)`
   height: 200;
-<<<<<<< HEAD
-  width: 300; 
-=======
   width: 300;
->>>>>>> origin/master
 `;
 
 export default SearchLab;

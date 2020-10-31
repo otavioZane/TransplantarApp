@@ -9,11 +9,7 @@ export const Container = styled(View)`
 export const RouteTitle = styled(Text)`
   color: ${({textColor}) => textColor || '#fff'};
   font-size: 22;
-<<<<<<< HEAD
-  font-weight:bold;
-=======
   font-weight: bold;
->>>>>>> origin/master
   text-align: center;
   margin-right: auto;
   margin-top: 30px;

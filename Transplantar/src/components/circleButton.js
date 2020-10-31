@@ -1,32 +1,17 @@
 import styled from 'styled-components/native';
 import {TouchableOpacity, Image, Text, Dimensions} from 'react-native';
-<<<<<<< HEAD
-import React from 'react'
-
-const {width, height} = Dimensions.get("window")
-
-const CircleButton = (props) => { 
-  return(
-  <ButtonCircle>
-    <ButtonImage source={props.source} />
-    <ButtonTextTitle>{props.Text}</ButtonTextTitle>
-    <ButtonTextST>{props.Text}</ButtonTextST> 
-  </ButtonCircle>
-  )
-=======
 import React from 'react';
 
 const {width, height} = Dimensions.get('window');
 
 const CircleButton = (props) => {
   return (
-    <ButtonCircle>
+    <ButtonCircle onPress={props.onPress}>
       <ButtonImage source={props.source} />
-      <ButtonTextTitle>{props.Text}</ButtonTextTitle>
-      <ButtonTextST>{props.Text}</ButtonTextST>
+      <ButtonTextTitle>{props.textTitle}</ButtonTextTitle>
+      <ButtonTextST>{props.textST}</ButtonTextST>
     </ButtonCircle>
   );
->>>>>>> origin/master
 };
 
 const ButtonCircle = styled(TouchableOpacity)`
@@ -36,33 +21,30 @@ const ButtonCircle = styled(TouchableOpacity)`
   height: 80;
   margin: 10px;
   padding: 12px;
-  width: 80;
+  width: 92;
   background-color: #fff;
+  /* justify-content: center; */
+  align-content: center;
+  align-items: center;
 `;
 
 const ButtonImage = styled(Image)`
   height: 50;
-<<<<<<< HEAD
-  width: 50; 
-=======
   width: 50;
->>>>>>> origin/master
 `;
 
 const ButtonTextTitle = styled(Text)`
   color: #000;
-  font-size: 20;
+  font-size: 12;
+  text-align: center;
+  margin-top: 6;
+  font-weight: bold;
 `;
 
 const ButtonTextST = styled(Text)`
   color: #ccc;
-  font-size: 15;
-<<<<<<< HEAD
-`
-;
-
-export default CircleButton;
-=======
+  font-size: 10;
+  text-align: center;
+  margin-top: 2;
 `;
 export default CircleButton;
->>>>>>> origin/master

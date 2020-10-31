@@ -9,15 +9,10 @@ const Tips = ({route, navigation}) => {
     switch (route.params.tipTitle) {
       case 'Exames':
         return (
-          '  Para a primeira consulta não são obrigatórios todos os exames prontos, porém, quanto maior o número destes exames melhor será sua avaliação pela equipe multidisciplinar.   ' +
-          '  É necessário realizar o exame de compatibilidade, pois os dois precisam ter compatibilidade sanguínea (o fator RH positivo ou negativo não importa). Assim, o paciente que tem sangue tipo O só pode receber rim de doadores O. Os que possuem sangue do tipo A podem receber de O ou A. Os receptores B podem receber de O ou B e os receptores AB podem receber de qualquer tipo sanguíneo. Quanto maior a compatibilidade, melhor.  ' +
-          '  Quais os requisitos para um indivíduo ser considerado doador?  ' +
-          '  Ter identificação e registro hospitalar;   ' +
-          '  Ter a causa do coma estabelecida e conhecida;  ' +
-          '  Não apresentar hipotermia (temperatura do corpo inferior a 35ºC), hipotensão arterial ou estar sob efeitos de drogas depressoras do Sistema Nervoso Central;   ' +
-          '  Passar por dois exames neurológicos que avaliem o estado do tronco cerebral. Esses exames devem ser realizados por dois médicos não participantes das equipes de captação e de transplante;  ' +
-          '  Submeter-se a exame complementar que demonstre morte encefálica, caracterizada pela ausência de fluxo sanguíneo em quantidade necessária no cérebro, além de inatividade elétrica e metabólica cerebral;   ' +
-          '  Estar comprovada a morte encefálica. Situação bem diferente do coma, quando as células do cérebro estão vivas, respirando e se alimentando, mesmo que com dificuldade ou um pouco debilitadas. Observação: Após diagnosticada a morte encefálica, o médico do paciente, da Unidade de Terapia Intensiva ou da equipe de captação de órgãos deve informar de forma clara e objetiva que a pessoa está morta e que, nesta situação, os órgãos podem ser doados para transplante.  '
+          '  Para a primeira consulta não são obrigatórios todos os exames prontos, porém, quanto maior o número destes exames melhor será sua avaliação pela equipe multidisciplinar.' +
+          '  É necessário realizar o exame de compatibilidade, pois os dois precisam ter compatibilidade sanguínea (o fator RH positivo ou negativo não importa). ' +
+          '  Assim, o paciente que tem sangue tipo O só pode receber rim de doadores O. Os que possuem sangue do tipo A podem receber de O ou A.' +
+          '  Os receptores B podem receber de O ou B e os receptores AB podem receber de qualquer tipo sanguíneo. Quanto maior a compatibilidade, melhor.' 
         );
         break;
       case 'Pré-Doação':
@@ -42,11 +37,11 @@ const Tips = ({route, navigation}) => {
         <PurpleRound height="60%" style={{position: 'relative'}}>
           <RouteTitle>{route.params.tipTitle}</RouteTitle>
         </PurpleRound>
-        <CardBackground style={{marginTop: -330, marginBottom: 500}}>
+        <CardBackground style={{marginTop: -450, marginBottom: 500}}>
           <RouteTitle padding="0" marginTop="0" textColor="#363636">
-            Exames
+          {route.params.tipTitle}
           </RouteTitle>
-          <Termos>{getTipText()}</Termos>
+          <Termos style={{fontSize: 16}}>{getTipText()}</Termos>
         </CardBackground>
       </ScrollView>
     </View>
