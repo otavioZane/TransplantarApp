@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {TouchableOpacity, Image, Dimensions} from 'react-native';
+import {TouchableOpacity, Image, Text, Dimensions} from 'react-native';
 import React from 'react'
 
 const {width, height} = Dimensions.get("window")
@@ -7,7 +7,9 @@ const {width, height} = Dimensions.get("window")
 const CircleButton = (props) => { 
   return(
   <ButtonCircle>
-    <ButtonImage source={props.source} /> 
+    <ButtonImage source={props.source} />
+    <ButtonTextTitle>{props.Text}</ButtonTextTitle>
+    <ButtonTextST>{props.Text}</ButtonTextST> 
   </ButtonCircle>
   )
 };
@@ -27,5 +29,16 @@ const ButtonImage = styled(Image)`
   height: 50;
   width: 50; 
 `;
+
+const ButtonTextTitle = styled(Text)`
+  color: #000;
+  font-size: 20;
+`;
+
+const ButtonTextST = styled(Text)`
+  color: #ccc;
+  font-size: 15;
+`
+;
 
 export default CircleButton;

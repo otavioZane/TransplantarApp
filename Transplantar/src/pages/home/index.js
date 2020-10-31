@@ -2,14 +2,16 @@ import React from 'react';
 
 import {Container, ButtonContainer, RouteTitle} from './styles'
 
-import PurpleRound from '../../components/purpleRound'
 import CircleButton from '../../components/circleButton'
+import NavBar from '../../components/navBar'
+import PurpleRound from '../../components/purpleRound'
 import SearchLab from '../../components/searchLab'
 
 import Nurse from '../../assets/img/nurse.png'
 import Pill from '../../assets/img/pill.png'
 import Microscope from '../../assets/img/microscope.png'
 import HomeLabSearch from '../../assets/img/home.png'
+
 
 const Home = () => {
   return (
@@ -25,7 +27,7 @@ const Home = () => {
           <CircleButton source={Microscope}></CircleButton>
         </ButtonContainer>
       </PurpleRound>
-      {/* <SearchLab source={HomeLabSearch}/> */}
+      <SearchLab source={HomeLabSearch}/> 
     </Container>
   );
 };
