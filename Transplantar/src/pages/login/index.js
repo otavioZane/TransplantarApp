@@ -38,7 +38,7 @@ const Login = ({route, navigation}) => {
               );
               AsyncStorage.setItem('tipoUsuario', toString(user.tipoUsuario));
               AsyncStorage.setItem('celular', user.celular);
-              navigation.navigate('Home');
+              navigation.navigate('Menu');
             } else {
               Alert.alert('Acesso Negado', 'O PIN informado está incorreto!');
             }

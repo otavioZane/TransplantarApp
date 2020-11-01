@@ -5,7 +5,7 @@ import {Image, Text, View, TouchableOpacity} from 'react-native';
 const SearchLab = (props) => (
   <SearchContainer>
     <SearchImage source={props.source} />
-    <BtnContainer>
+    <BtnContainer onPress={props.onPress}>
       <ButtonText>Encontrar laboratórios próximos</ButtonText>
     </BtnContainer>
   </SearchContainer>
@@ -31,7 +31,8 @@ const ButtonText = styled(Text)`
 
 const BtnContainer = styled(TouchableOpacity)`
   background: #fff;
-  margin: 15px;
+  
+  margin-top: 25px;
   padding: 12px;
   width: 350;
 `;

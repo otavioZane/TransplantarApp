@@ -112,7 +112,7 @@ const Register = ({route, navigation}) => {
             <Picker.Item label="Osasco" value="Osasco" />
           </Picker>
           <InputLabel>
-            {route.params.userType == 'doador'
+            {AsyncStorage.getItem("tipoUsuario") == '0'
               ? 'Orgão Disponível'
               : 'Orgão Necessário'}
           </InputLabel>

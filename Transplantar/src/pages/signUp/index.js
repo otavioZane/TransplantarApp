@@ -10,7 +10,7 @@ const SignUp = ({navigation}) => {
     async function fetchData() {
       var auth = await AsyncStorage.getItem('auth');
       if (auth == 'true') {
-        navigation.navigate('Home');
+        navigation.navigate('Menu');
       }
     }
     fetchData();
@@ -39,7 +39,7 @@ const SignUp = ({navigation}) => {
           textColor="#82bbdc"
         />
         <RoundButton
-          onPress={() => navigation.navigate('Login', {userType: 'receptor'})}
+          onPress={() => navigation.navigate('Login')}
           text="Já sou cadastrado"
           textColor="#6f78f6"
         />

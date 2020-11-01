@@ -7,6 +7,7 @@ import Login from './pages/login';
 import SignUp from './pages/signUp';
 import Register from './pages/register';
 import EditProfile from './pages/editProfile';
+import Menu from './pages/menu';
 
 const {Navigator, Screen} = createStackNavigator();
 
@@ -18,6 +19,7 @@ const Routes = () => (
     <Screen name="Home" component={Home} />
     <Screen name="Tips" component={Tips} />
     <Screen name="EditProfile" component={EditProfile} />
+    <Screen name="Menu" component={Menu} />
   </Navigator>
 );
 
