@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 import React from 'react';
-import {Image, Text, View, TouchableOpacity} from 'react-native';
+import {Image, Text, View, Linking, TouchableOpacity} from 'react-native';
 
 const SearchLab = (props) => (
   <SearchContainer>
     <SearchImage source={props.source} />
-    <BtnContainer onPress={props.onPress}>
+    <BtnContainer onPress={() => Linking.openURL('https://www.google.com.br/maps/search/laborat%C3%B3rio/@-23.5609739,-46.7570128,15z/data=!3m1!4b1')}>
       <ButtonText>Encontrar laboratórios próximos</ButtonText>
     </BtnContainer>
   </SearchContainer>

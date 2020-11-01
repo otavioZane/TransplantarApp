@@ -5,7 +5,6 @@ import Home from '../home';
 import EditProfile from '../editProfile';
 import Match from '../match';
 
-
 const Tab = createBottomTabNavigator();
 
 const Menu = ({navigation}) => {
