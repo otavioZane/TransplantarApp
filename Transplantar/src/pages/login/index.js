@@ -25,18 +25,21 @@ const Login = ({route, navigation}) => {
           if (user != null) {
             if (user.pin == pin) {
               AsyncStorage.setItem('auth', 'true');
-              AsyncStorage.setItem('usuarioId', toString(user.usuarioId));
+              AsyncStorage.setItem('id', JSON.stringify(user.usuarioId));
               AsyncStorage.setItem('cpf', user.cpf);
               AsyncStorage.setItem('nome', user.nome);
               AsyncStorage.setItem('email', user.email);
               AsyncStorage.setItem('cidade', user.cidade);
-              AsyncStorage.setItem('orgao', toString(user.orgao));
-              AsyncStorage.setItem('pin', toString(user.pin));
+              AsyncStorage.setItem('orgao', JSON.stringify(user.orgao));
+              AsyncStorage.setItem('pin', JSON.stringify(user.pin));
               AsyncStorage.setItem(
                 'grupoSanguineo',
-                toString(user.grupoSanguineo),
+                JSON.stringify(user.grupoSanguineo),
               );
-              AsyncStorage.setItem('tipoUsuario', toString(user.tipoUsuario));
+              AsyncStorage.setItem(
+                'tipoUsuario',
+                JSON.stringify(user.tipoUsuario),
+              );
               AsyncStorage.setItem('celular', user.celular);
               navigation.navigate('Menu');
             } else {

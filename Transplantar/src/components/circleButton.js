@@ -31,6 +31,7 @@ const ButtonCircle = styled(TouchableOpacity)`
 const ButtonImage = styled(Image)`
   height: 50;
   width: 50;
+  margin-bottom: 16px;
 `;
 
 const ButtonTextTitle = styled(Text)`

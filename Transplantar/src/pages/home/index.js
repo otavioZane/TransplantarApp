@@ -1,47 +1,52 @@
 import React from 'react';
-
-import {Container, ButtonContainer, RouteTitle} from './styles'
-
-import CircleButton from '../../components/circleButton'
-import NavBar from '../../components/navBar'
-import PurpleRound from '../../components/purpleRound'
-import SearchLab from '../../components/searchLab'
-
-import Nurse from '../../assets/img/nurse.png'
-import Pill from '../../assets/img/pill.png'
-import Microscope from '../../assets/img/microscope.png'
-import HomeLabSearch from '../../assets/img/home.png'
+import {Container, ButtonContainer, RouteTitle} from './styles';
+import {CardBackground} from '../register/styles';
+import {Termos} from '../signUp/styles';
+import CircleButton from '../../components/circleButton';
+import PurpleRound from '../../components/purpleRound';
+import SearchLab from '../../components/searchLab';
+import Nurse from '../../assets/img/nurse.png';
+import Pill from '../../assets/img/pill.png';
+import Microscope from '../../assets/img/microscope.png';
+import HomeLabSearch from '../../assets/img/home.png';
+import {View} from 'react-native';
 
 const Home = ({navigation}) => {
   return (
     <Container>
-      <PurpleRound
-        height="22%"
-        style={{position: 'relative'}}   
-      >
-      <RouteTitle>Transplantar</RouteTitle>
+      <PurpleRound height="22%" style={{position: 'relative'}}>
+        <RouteTitle>Transplantar</RouteTitle>
         <ButtonContainer style={{marginTop: -35}}>
-          <CircleButton 
-            source={Microscope} 
+          <CircleButton
+            source={Microscope}
             onPress={() => navigation.navigate('Tips', {tipTitle: 'Exames'})}
             textTitle="Exames"
-            textST="Encontre seus exames"
-            ></CircleButton>
-          <CircleButton 
-            source={Nurse} 
-            onPress={() => navigation.navigate('Tips', {tipTitle: 'Pré-Doação'})}
+            textST="Encontre seus exames"></CircleButton>
+          <CircleButton
+            source={Nurse}
+            onPress={() =>
+              navigation.navigate('Tips', {tipTitle: 'Pré-Doação'})
+            }
             textTitle="Pré-doação"
-            textST="Requisitos para doação"
-            ></CircleButton>
-          <CircleButton 
-            source={Pill} 
-            onPress={() => navigation.navigate('Tips', {tipTitle: 'Pós-Doação'})}
+            textST="Requisitos para doação"></CircleButton>
+          <CircleButton
+            source={Pill}
+            onPress={() =>
+              navigation.navigate('Tips', {tipTitle: 'Pós-Doação'})
+            }
             textTitle="Pós-doação"
-            textST="Cicatrização e cuidados"
-            ></CircleButton>
+            textST="Cicatrização e cuidados"></CircleButton>
         </ButtonContainer>
       </PurpleRound>
-      <SearchLab source={HomeLabSearch}/>      
+      <View style={{flex: 1, justifyContent: 'center'}}>
+        <CardBackground style={{}}>
+          <Termos style={{textAlign: 'center'}}>
+            Estamos encontrando alguém compatível com você, por enquanto, o que
+            acha de nos ajudar!
+          </Termos>
+        </CardBackground>
+        <SearchLab source={HomeLabSearch} />
+      </View>
     </Container>
   );
 };
