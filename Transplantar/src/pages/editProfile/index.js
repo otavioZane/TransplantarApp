@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Termos} from '../signUp/styles';
 import {Alert, ScrollView, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
@@ -21,10 +21,50 @@ const Register = ({route, navigation}) => {
   const [city, setCity] = React.useState('');
   const [organ, setOrgan] = React.useState('');
   const [blood, setBlood] = React.useState('');
+  const [userType, setUserType] = React.useState('');
+
+  useEffect(() => {
+    async function fetchData() {
+      setName(await AsyncStorage.getItem('nome'));
+      setEmail(await AsyncStorage.getItem('email'));
+      setPhone(await AsyncStorage.getItem('celular'));
+      setPin(await AsyncStorage.getItem('pin'));
+      setCPF(await AsyncStorage.getItem('cpf'));
+      setCity(await AsyncStorage.getItem('cidade'));
+      setOrgan(await AsyncStorage.getItem('orgao'));
+      setBlood(await AsyncStorage.getItem('grupoSanguineo'));
+      setUserType(await AsyncStorage.getItem('tipoUsuario'));
+    }
+    fetchData();
+  }, []);
+
+  const handleDeleteAccount = async () => {
+    var id = await AsyncStorage.getItem('id');
+    fetch('https://transplantar.azurewebsites.net/' + id, {
+      method: 'DELETE',
+      headers: {
+        'content-Type': 'application/json',
+      },
+      body: false,
+    }).then((response) => {
+      if (response.ok) {
+        AsyncStorage.clear();
+
+        Alert.alert('Deletado!', 'Seus dados foram deletados com sucesso.');
+
+        navigation.navigate('SignUp');
+      } else {
+        let error = new Error(response.statusText);
+        Alert.alert('Erro', 'Houve um erro ao processar a requisição.');
+        error.response = response;
+        throw error;
+      }
+    });
+  };
 
   const handleEditProfile = async () => {
     var userType = await AsyncStorage.getItem('tipoUsuario');
-    var id = await AsyncStorage.getItem('usuarioId');
+    var id = await AsyncStorage.getItem('id');
     fetch('https://transplantar.azurewebsites.net/' + id, {
       method: 'PUT',
       headers: {
@@ -38,7 +78,7 @@ const Register = ({route, navigation}) => {
         estado: 'São Paulo',
         orgao: parseInt(organ),
         pin: parseInt(pin),
-        grupoSanguineio: parseInt(blood),
+        grupoSanguineo: parseInt(blood),
         tipoUsuario: parseInt(userType),
         celular: phone,
       }),
@@ -48,10 +88,12 @@ const Register = ({route, navigation}) => {
         AsyncStorage.setItem('nome', name);
         AsyncStorage.setItem('email', email);
         AsyncStorage.setItem('cidade', city);
-        AsyncStorage.setItem('orgao', toString(organ));
-        AsyncStorage.setItem('pin', toString(pin));
-        AsyncStorage.setItem('grupoSanguineo', toString(blood));
+        AsyncStorage.setItem('orgao', organ);
+        AsyncStorage.setItem('pin', pin);
+        AsyncStorage.setItem('grupoSanguineo', blood);
         AsyncStorage.setItem('celular', phone);
+
+        Alert.alert('Alterado!', 'Seus dados foram atualizados com sucesso.');
       } else {
         let error = new Error(response.statusText);
         Alert.alert('Erro', 'Houve um erro ao processar a requisição.');
@@ -65,40 +107,54 @@ const Register = ({route, navigation}) => {
     <View style={{flex: 1}}>
       <ScrollView
         alwaysBounceVertical={true}
-        contentContainerStyle={{alignItems: 'center', flexGrow: 1}}>
-        <PurpleRound height="60%" style={{position: 'relative'}}>
+        contentContainerStyle={{
+          alignItems: 'center',
+          flexGrow: 1,
+        }}>
+        <PurpleRound height="40%" style={{position: 'relative'}}>
           <RouteTitle>Editar o seu perfil</RouteTitle>
         </PurpleRound>
-        <CardBackground style={{marginTop: -440, marginBottom: 500}}>
+        <CardBackground
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            marginTop: -290,
+            marginBottom: 400,
+          }}>
           <InputLabel>Nome</InputLabel>
           <InputText
             onChangeText={(text) => setName(text)}
             placeholder="Nome"
-            value={AsyncStorage.getItem('cpf')}
+            defaultValue={name}
           />
           <InputLabel>CPF</InputLabel>
-          <InputText onChangeText={(text) => setCPF(text)} placeholder="CPF" />
+          <InputText
+            onChangeText={(text) => setCPF(text)}
+            placeholder="CPF"
+            defaultValue={CPF}
+          />
           <InputLabel>E-mail</InputLabel>
           <InputText
             onChangeText={(text) => setEmail(text)}
             placeholder="E-mail"
-            value={AsyncStorage.getItem('email')}
+            defaultValue={email}
           />
           <InputLabel>Celular (WhatsApp)</InputLabel>
           <InputText
             onChangeText={(text) => setPhone(text)}
             placeholder="Celular"
-            value={AsyncStorage.getItem('celular')}
+            defaultValue={phone}
           />
           <InputLabel>PIN</InputLabel>
           <InputText
             value={AsyncStorage.getItem('pin')}
             onChangeText={(text) => setPin(text)}
             placeholder="PIN"
+            defaultValue={pin}
           />
           <InputLabel>Cidade</InputLabel>
           <Picker
-            selectedValue={AsyncStorage.getItem('cidade')}
+            selectedValue={city}
             style={{
               width: '100%',
             }}
@@ -112,12 +168,10 @@ const Register = ({route, navigation}) => {
             <Picker.Item label="Osasco" value="Osasco" />
           </Picker>
           <InputLabel>
-            {AsyncStorage.getItem("tipoUsuario") == '0'
-              ? 'Orgão Disponível'
-              : 'Orgão Necessário'}
+            {userType == '0' ? 'Orgão Disponível' : 'Orgão Necessário'}
           </InputLabel>
           <Picker
-            selectedValue={AsyncStorage.getItem('orgao')}
+            selectedValue={organ}
             style={{
               width: '100%',
             }}
@@ -130,7 +184,7 @@ const Register = ({route, navigation}) => {
           </Picker>
           <InputLabel>Tipo Sanguíneo</InputLabel>
           <Picker
-            selectedValue={AsyncStorage.getItem('grupoSanguineio')}
+            selectedValue={blood}
             style={{
               width: '100%',
             }}
@@ -142,11 +196,19 @@ const Register = ({route, navigation}) => {
             <Picker.Item label="O" value="3" />
           </Picker>
           <Termos style={{textAlign: 'center'}}>
-            Ao clicar em 'Cadastrar' você afirma que concorda com os termos e
+            Ao clicar em 'Salvar' você afirma que concorda com os termos e
             condições da plataforma.
           </Termos>
+
           <RoundButton
-            text="Cadastrar"
+            text="Deletar Conta"
+            onPress={() => handleDeleteAccount()}
+            textColor="#8c0000"
+            backgroundColor="#fff"
+          />
+
+          <RoundButton
+            text="Salvar"
             onPress={() => handleEditProfile()}
             textColor="#fff"
             backgroundColor="#6f78f6"

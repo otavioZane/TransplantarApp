@@ -18,7 +18,7 @@ const Register = ({route, navigation}) => {
   const [blood, setBlood] = React.useState('');
 
   const handleRegisterUser = async () => {
-    var userType = route.params.userType == 'doador' ? 0 : 1;
+    var userType = route.params.userType == 'doador' ? '0' : '1';
 
     var data = JSON.stringify({
       cpf: CPF,
@@ -45,7 +45,7 @@ const Register = ({route, navigation}) => {
         })
           .then((response) => response.json())
           .then((user) => {
-            AsyncStorage.setItem('id', user.usuarioId);
+            AsyncStorage.setItem('id', JSON.stringify(user.usuarioId));
             AsyncStorage.setItem('auth', true);
             AsyncStorage.setItem('cpf', CPF);
             AsyncStorage.setItem('nome', name);
@@ -58,7 +58,7 @@ const Register = ({route, navigation}) => {
             AsyncStorage.setItem('grupoSanguineo', blood);
             AsyncStorage.setItem('celular', phone);
 
-            navigation.navigate('Home');
+            navigation.navigate('Menu');
           });
       } else {
         let error = new Error(response.statusText);
