@@ -22,7 +22,7 @@ const SearchContainer = styled(View)`
   border-color: #ccc;
   border-radius: 40;
   justify-content: center;
-  margin-top: 26;
+  margin-top: 55;
   height: 330;
   width: 350;
 `;
