@@ -49,8 +49,8 @@ const Match = ({navigation}) => {
       })
         .then((response) => response.json())
         .then((users) => {
-          if (users != null) {
-            setMatches([users]);
+          if (users.length > 0) {
+            setMatches(users);
           } else {
             Alert.alert(
               'Aguarde',

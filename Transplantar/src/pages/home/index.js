@@ -40,9 +40,10 @@ const Home = ({navigation}) => {
       </PurpleRound>
       <View style={{flex: 1, justifyContent: 'center'}}>
         <CardBackground style={{}}>
-          <Termos style={{textAlign: 'center'}}>
-            Estamos encontrando alguém compatível com você, por enquanto, o que
-            acha de nos ajudar!
+          <Termos style={{textAlign: 'center', marginTop: 0}}>
+            Lembre-se, aqui você vai encontrar a pessoa que possua o mesmo grupo
+            sanguíneo que você, esteja na mesma cidade e possuam o orgão em
+            comum.
           </Termos>
         </CardBackground>
         <SearchLab source={HomeLabSearch} />

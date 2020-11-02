@@ -111,11 +111,17 @@ const Tips = ({route, navigation}) => {
     <View style={{flex: 1}}>
       <ScrollView
         alwaysBounceVertical={true}
-        contentContainerStyle={{alignItems: 'center', flexGrow: 1}}>
-        <PurpleRound height="60%" style={{position: 'relative'}}>
+        contentContainerStyle={{alignItems: 'center'}}>
+        <PurpleRound style={{position: 'relative', height: 500}}>
           <RouteTitle>{route.params.tipTitle}</RouteTitle>
         </PurpleRound>
-        <CardBackground style={{marginTop: -450, marginBottom: 600}}>
+        <CardBackground
+          style={{
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            marginTop: '-90%',
+            marginBottom: 50,
+          }}>
           <RouteTitle padding="0" marginTop="0" textColor="#363636">
             {route.params.tipTitle}
           </RouteTitle>
