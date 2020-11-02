@@ -32,6 +32,7 @@ const ButtonImage = styled(Image)`
   height: 50;
   width: 50;
   margin-bottom: 16px;
+  resize-mode: contain;
 `;
 
 const ButtonTextTitle = styled(Text)`

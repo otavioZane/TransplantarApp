@@ -28,7 +28,7 @@ const Register = ({route, navigation}) => {
       estado: 'São Paulo',
       orgao: parseInt(organ),
       pin: parseInt(pin),
-      grupoSanguineio: parseInt(blood),
+      grupoSanguineo: parseInt(blood),
       tipoUsuario: parseInt(userType),
       celular: phone,
     });
