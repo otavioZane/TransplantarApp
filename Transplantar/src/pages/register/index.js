@@ -46,7 +46,7 @@ const Register = ({route, navigation}) => {
           .then((response) => response.json())
           .then((user) => {
             AsyncStorage.setItem('id', JSON.stringify(user.usuarioId));
-            AsyncStorage.setItem('auth', true);
+            AsyncStorage.setItem('auth', 'true');
             AsyncStorage.setItem('cpf', CPF);
             AsyncStorage.setItem('nome', name);
             AsyncStorage.setItem('email', email);
